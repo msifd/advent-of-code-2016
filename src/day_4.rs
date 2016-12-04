@@ -1,4 +1,5 @@
 use std::collections::LinkedList;
+use std::collections::BTreeMap;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Room {
@@ -25,8 +26,6 @@ pub fn parse_input(input: &str) -> LinkedList<Room> {
 }
 
 fn validate(room: &Room) -> bool {
-    use std::collections::BTreeMap;
-
     let dashless_name = room.name.replace('-', "");
     let mut dict = BTreeMap::new();
 
@@ -50,6 +49,30 @@ pub fn count_sectors(input: &LinkedList<Room>) -> u32 {
     input.iter().filter(|r| validate(r)).map(|r| r.sector ).sum()
 }
 
+fn decrypt_name(encrypted: &String, shift: u32) -> String {
+    static ASCII: [char; 26] = [
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+        'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+        's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+    ];
+
+    let decoded: String = encrypted.chars().map(|c| {
+        match c {
+            '-' => ' ',
+            _ => ASCII[(((c as i32 - 97) + shift as i32) % 26) as usize]
+        }
+    }).collect();
+
+    decoded
+}
+
+pub fn find_northpole_objects(input: &LinkedList<Room>) -> u32 {
+    input.iter()
+        .filter(|r| validate(r))
+        .filter(|r| decrypt_name(&r.name, r.sector).contains("northpole"))
+        .next().unwrap().sector
+}
+
 #[test]
 fn test_parse() {
     assert_eq!(Room {
@@ -63,4 +86,9 @@ fn test_parse() {
 fn test_1() {
     let input = "aaaaa-bbb-z-y-x-123[abxyz]\ntotally-real-room-200[decoy]\na-b-c-d-e-f-g-h-987[abcde]\nnot-a-real-room-404[oarel]";
     assert_eq!(1514, count_sectors(&parse_input(&input)));
+}
+
+#[test]
+fn test_decrypt() {
+    assert_eq!("very encrypted name", decrypt_name(&"qzmt-zixmtkozy-ivhz".to_string(), 343));
 }

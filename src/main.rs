@@ -35,4 +35,5 @@ fn day_4() {
     use day_4::*;
     let input = parse_input(include_str!("inputs/day_4.txt"));
     println!("[Day 4] sector sum: {}", count_sectors(&input));
+    println!("[Day 4] sector with North Pole objects: {}", find_northpole_objects(&input));
 }
