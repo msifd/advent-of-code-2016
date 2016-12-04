@@ -17,4 +17,5 @@ fn day_2() {
     use day_2::*;
     let inst = parse_input(include_str!("inputs/day_2.txt"));
     println!("[Day 2] code: {}", decode(&inst));
+    println!("[Day 2] code on real keypad: {}", decode_real(&inst));
 }
