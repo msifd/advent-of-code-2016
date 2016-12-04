@@ -5,6 +5,7 @@ mod day_3;
 fn main() {
     day_1();
     day_2();
+    day_3();
 }
 
 fn day_1() {
@@ -19,4 +20,10 @@ fn day_2() {
     let inst = parse_input(include_str!("inputs/day_2.txt"));
     println!("[Day 2] code: {}", decode(&inst));
     println!("[Day 2] code on real keypad: {}", decode_real(&inst));
+}
+
+fn day_3() {
+    use day_3::*;
+    let inst = parse_input(include_str!("inputs/day_3.txt"));
+    println!("[Day 3] valid: {}", count_valid(&inst));
 }
