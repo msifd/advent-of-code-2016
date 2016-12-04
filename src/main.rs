@@ -7,6 +7,7 @@ fn main() {
     day_1();
     day_2();
     day_3();
+    day_4();
 }
 
 fn day_1() {
@@ -28,4 +29,10 @@ fn day_3() {
     let input = include_str!("inputs/day_3.txt");
     println!("[Day 3] valid: {}", count_valid(&parse_input(input)));
     println!("[Day 3] valid in columns: {}", count_valid(&parse_input_in_columns(input)));
+}
+
+fn day_4() {
+    use day_4::*;
+    let input = parse_input(include_str!("inputs/day_4.txt"));
+    println!("[Day 4] sector sum: {}", count_sectors(&input));
 }
