@@ -4,3 +4,4 @@ version = "0.1.0"
 authors = ["msifeed <remsifeed@gmail.com>"]
 
 [dependencies]
+rust-crypto = "*"

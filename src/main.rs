@@ -1,13 +1,17 @@
+extern crate crypto;
+
 mod day_1;
 mod day_2;
 mod day_3;
 mod day_4;
+mod day_5;
 
 fn main() {
     day_1();
     day_2();
     day_3();
     day_4();
+    day_5();
 }
 
 fn day_1() {
@@ -36,4 +40,10 @@ fn day_4() {
     let input = parse_input(include_str!("inputs/day_4.txt"));
     println!("[Day 4] sector sum: {}", count_sectors(&input));
     println!("[Day 4] sector with North Pole objects: {}", find_northpole_objects(&input));
+}
+
+fn day_5() {
+    use day_5::*;
+    let input = "reyedfim";
+    println!("[Day 5] pass: {}", hack_pass(input));
 }
