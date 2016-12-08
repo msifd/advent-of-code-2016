@@ -5,6 +5,7 @@ mod day_2;
 mod day_3;
 mod day_4;
 mod day_5;
+mod day_6;
 
 fn main() {
     day_1();
@@ -12,6 +13,7 @@ fn main() {
     day_3();
     day_4();
     day_5();
+    day_6();
 }
 
 fn day_1() {
@@ -47,4 +49,10 @@ fn day_5() {
     let input = "reyedfim";
     println!("[Day 5] pass: {}", hack_pass(input));
     println!("[Day 5] second pass: {}", hack_second_pass(input));
+}
+
+fn day_6() {
+    use day_6::*;
+    let input = include_str!("inputs/day_6.txt");
+    println!("[Day 6] message: {}", correct_message(input));
 }
