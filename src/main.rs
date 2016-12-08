@@ -55,4 +55,5 @@ fn day_6() {
     use day_6::*;
     let input = include_str!("inputs/day_6.txt");
     println!("[Day 6] message: {}", correct_message(input));
+    println!("[Day 6] correct message: {}", even_more_correct_message(input));
 }
