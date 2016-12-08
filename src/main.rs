@@ -46,4 +46,5 @@ fn day_5() {
     use day_5::*;
     let input = "reyedfim";
     println!("[Day 5] pass: {}", hack_pass(input));
+    println!("[Day 5] second pass: {}", hack_second_pass(input));
 }
