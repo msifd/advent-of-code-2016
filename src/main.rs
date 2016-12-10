@@ -15,6 +15,7 @@ fn main() {
     day_4();
     day_5();
     day_6();
+    day_7();
 }
 
 fn day_1() {
@@ -57,4 +58,10 @@ fn day_6() {
     let input = include_str!("inputs/day_6.txt");
     println!("[Day 6] message: {}", correct_message(input));
     println!("[Day 6] correct message: {}", even_more_correct_message(input));
+}
+
+fn day_7() {
+    use day_7::*;
+    let input = include_str!("inputs/day_7.txt");
+    println!("[Day 7] tls ips: {}", count_tls_ips(&parse_input(input)));
 }
