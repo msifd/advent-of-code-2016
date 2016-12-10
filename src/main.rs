@@ -62,6 +62,7 @@ fn day_6() {
 
 fn day_7() {
     use day_7::*;
-    let input = include_str!("inputs/day_7.txt");
-    println!("[Day 7] tls ips: {}", count_tls_ips(&parse_input(input)));
+    let input = parse_input(include_str!("inputs/day_7.txt"));
+    println!("[Day 7] tls ips: {}", count_tls_ips(&input));
+    println!("[Day 7] ssl ips: {}", count_ssl_ips(&input));
 }
